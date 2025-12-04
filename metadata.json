@@ -1,0 +1,5 @@
+{
+  "name": "InvoiceGen Pro",
+  "description": "Professional PDF invoice generator with client management, history tracking, and support for negative line items.",
+  "requestFramePermissions": []
+}
