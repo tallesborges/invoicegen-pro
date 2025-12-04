@@ -3,9 +3,10 @@ import { LayoutDashboard, FileText, Users, Settings as SettingsIcon, PlusCircle 
 import InvoiceForm from './components/InvoiceForm';
 import CompanyManager from './components/CompanyManager';
 import InvoiceHistory from './components/InvoiceHistory';
+import Settings from './components/Settings';
 import { Invoice } from './types';
 
-type View = 'create' | 'history' | 'companies';
+type View = 'create' | 'history' | 'companies' | 'settings';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('create');
@@ -45,6 +46,8 @@ const App: React.FC = () => {
         return <CompanyManager />;
       case 'history':
         return <InvoiceHistory onDuplicate={handleEditInvoice} />;
+      case 'settings':
+        return <Settings />;
       default:
         return <div>Not Found</div>;
     }
@@ -84,6 +87,14 @@ const App: React.FC = () => {
           >
             <Users size={20} />
             <span>Companies</span>
+          </button>
+
+          <button 
+            onClick={() => setCurrentView('settings')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${currentView === 'settings' ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`}
+          >
+            <SettingsIcon size={20} />
+            <span>Settings</span>
           </button>
         </div>
       </nav>

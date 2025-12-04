@@ -32,6 +32,8 @@ export interface AppSettings {
   senderName: string;
   senderAddress: string;
   senderPhone: string;
+  senderEmail?: string;
   defaultTaxRate: number;
   nextInvoiceNumber: number;
+  invoicePrefix: string; // e.g., "INV-", "INVOICE-"
 }

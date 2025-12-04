@@ -15,7 +15,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ onSave, existingInvoice }) =>
   const [companies, setCompanies] = useState<Company[]>([]);
   
   // Form State
-  const [invoiceNumber, setInvoiceNumber] = useState(existingInvoice?.invoiceNumber || `INV${settings.nextInvoiceNumber}`);
+  const [invoiceNumber, setInvoiceNumber] = useState(existingInvoice?.invoiceNumber || `${settings.invoicePrefix}${settings.nextInvoiceNumber}`);
   const [date, setDate] = useState(existingInvoice?.date || new Date().toISOString().split('T')[0]);
   const [dueDate, setDueDate] = useState(existingInvoice?.dueDate || '');
   const [selectedCompanyId, setSelectedCompanyId] = useState<string>(existingInvoice?.recipient?.id || '');
@@ -79,7 +79,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ onSave, existingInvoice }) =>
     StorageService.saveInvoice(newInvoice);
     
     // Update next invoice number if it's a new auto-generated one
-    if (!existingInvoice && invoiceNumber === `INV${settings.nextInvoiceNumber}`) {
+    if (!existingInvoice && invoiceNumber === `${settings.invoicePrefix}${settings.nextInvoiceNumber}`) {
       StorageService.saveSettings({
         ...settings,
         nextInvoiceNumber: settings.nextInvoiceNumber + 1

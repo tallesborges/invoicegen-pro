@@ -10,8 +10,10 @@ const DEFAULT_SETTINGS: AppSettings = {
   senderName: 'Your Business Name',
   senderAddress: 'Your Street Address\nCity, State, ZIP',
   senderPhone: '+1 555 123 4567',
+  senderEmail: '',
   defaultTaxRate: 0,
   nextInvoiceNumber: 1001,
+  invoicePrefix: 'INV-',
 };
 
 export const StorageService = {
