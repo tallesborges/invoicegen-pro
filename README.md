@@ -13,16 +13,16 @@ A professional invoice generation application built with React, TypeScript, and 
 
 ## Run Locally
 
-**Prerequisites:** Node.js (v16 or higher)
+**Prerequisites:** Bun (v1.0 or higher)
 
 1. Install dependencies:
    ```bash
-   npm install
+   bun install
    ```
 
 2. Run the development server:
    ```bash
-   npm run dev
+   bun dev
    ```
 
 3. Open your browser at `http://localhost:5173`
